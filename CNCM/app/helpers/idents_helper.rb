@@ -1,0 +1,2 @@
+module IdentsHelper
+end

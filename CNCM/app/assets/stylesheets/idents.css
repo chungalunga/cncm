@@ -1,0 +1,21 @@
+.logbox {
+	width: 300px;
+	height: 200px;
+}
+
+#result_div{
+	background-color: black;
+	color: white;
+	font-size: 0.8em;
+	max-height: 300px;
+	overflow-y: scroll;
+	overflow-x: hidden;
+}
+
+#project_header{
+	background-color: black; 
+	color: white;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	font-size: 1.3em;
+}

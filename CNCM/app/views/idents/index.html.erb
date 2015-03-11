@@ -1,0 +1,36 @@
+<div class='container'>
+
+<%= link_to "New Product", new_project_path, remote: true, class: "btn btn-primary" %>
+<%= link_to "New Product", new_project_path, remote: true, class: "btn btn-secondary" %>
+<%= link_to "New Product", new_project_path, remote: true, class: "btn btn-primary" %>
+<div id="product-modal" class="modal hide fade"></div>
+<% @projects.in_groups_of(3).each do |projects| %>
+  <% projects.select! {|x| !x.nil?} %>
+  <div class='row'>
+    <% projects.each do |project| %>
+      <div class='col-md-4'>
+        <div class="thumbnail">
+            <div class="caption">
+              <span class="listing-title"><%= project.customer %></span>
+              <span class="listing-desc"><%= project.id %></span>
+			  <span class="listing-title">
+				  <% if project.time_start < Time.now - (Time.now.wday) %>
+				  <%= (Time.now - (Time.now.wday)).midnight() %>
+				  <% else %>
+				  <%= project.time_end %>
+				  <% end %>
+			  </span>
+              <span class="listing-desc">
+				  <% if project.time_end > Time.now + (6 - (Time.now.wday)).days %>
+				  <%= Time.now.end_of_day() + (6 - (Time.now.wday)).days %>
+				  <% else %>
+				  <%= project.time_end %>
+				  <% end %>
+			  </span>
+              <span><%= link_to "Delete", projects_delete_path(:id => project.id) %></span>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

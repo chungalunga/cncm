@@ -1,0 +1,164 @@
+
+<div class="modal fade1" id="projectEdit" tabindex="-1" role="dialog" aria-labelledby="projectEditLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+		<form class="pure-form pure-form-stacked">
+		    <fieldset>
+		    	<div id="form_header" class="pure-g">
+		    	
+		        <div class="pure-u-1 pure-u-md-1-1">
+		        <label style="float:left; width: 100px"><h1>Projekt:</h1></label>
+		            <input id="form_ident_id" class="pure-u-23-24" name="form_project" type="text" style="font-size: 1.2em; width: 250px; margin-top: 20px">
+		        </div>		        
+		        <div class="pure-u-1 pure-u-md-1-1">
+		        <label style="float:left; width: 100px; text-align: right; margin-top: -10px"><h3>Stranka:</h3></label>
+		            <input id="form_ident_id" class="pure-u-23-24" name="form_project" type="text" style="font-size: 1em; width: 200px; margin-top: 0px">
+		        </div>
+
+		    </fieldset>
+		</form>      	
+      </div>
+      <div class="modal-body"style="overflow:hidden">
+		<form class="pure-form pure-form-stacked">
+		    <fieldset>
+		        <div id="form_dynmic_fields" class="pure-g">
+		            <div class="pure-u-1 pure-u-md-1-8">
+		                <label for="form_ident_id" style="font-size: 0.8em">ID Identa</label>
+		                <input id="form_ident_id" class="pure-u-23-24" name="id[]" type="text" style="font-size: 0.8em">
+		            </div>
+
+		            <div class="pure-u-1 pure-u-md-1-4">
+		                <label for="form_ident_description" style="font-size: 0.8em">Opis identa</label>
+		                <input id="form_ident_description" name="description[]" class="pure-u-23-24" type="text" style="font-size: 0.8em">
+		            </div>
+		            
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_priority" style="font-size: 0.6em; margin-top: 6px">prioriteta</label>
+		                <input id="form_ident_priority" class="pure-u-23-24" name ="priority[]" type="text" style="font-size: 0.8em">
+		            </div>
+
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_size" style="font-size: 0.6em; margin-top: 6px">velikost</label>
+		                <input id="form_ident_size" class="pure-u-23-24" name="size[]" type="text" style="font-size: 0.8em">
+		            </div>
+
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_rezkanje" style="font-size: 0.6em; margin-top: 6px">rezkanje</label>
+		                <input id="form_ident_rezkanje" class="pure-u-23-24" name="rezkanje[]" type="text" style="font-size: 0.8em">
+		            </div>
+
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_struzenje" style="font-size: 0.6em; margin-top: 6px">struženje</label>
+		                <input id="form_ident_struzenje" class="pure-u-23-24" name="struzenje[]" type="text" style="font-size: 0.8em">
+		            </div>
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_rezkanje" style="font-size: 0.6em; margin-top: 6px">rezkanje</label>
+		                <input id="form_ident_rezkanje" class="pure-u-23-24" name="rezkanje[]" type="text" style="font-size: 0.8em">
+		            </div>
+
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_struzenje" style="font-size: 0.6em; margin-top: 6px">struženje</label>
+		                <input id="form_ident_struzenje" class="pure-u-23-24" type="text" style="font-size: 0.8em">
+		            </div>
+		            <div class="pure-u-1 pure-u-md-1-12">
+		                <label for="form_ident_struzenje" style="font-size: 0.6em; margin-top: 6px">struženje</label>
+		                <input id="form_ident_struzenje" class="pure-u-23-24" type="text" style="font-size: 0.8em">
+		            </div>
+		        </div>
+		    </fieldset>
+		</form>
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+        <button type="button" id="save_changes" name="dddddd" onclick="saveForm()" class="btn btn-primary">Shrani</button>
+        <button type="button" name="dddddd" onClick="addInput();" class="btn btn-primary" style="float: left">Dodaj ident</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+      </div>
+      <div class="modal-body"style="overflow:hidden">
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Zapri</button>
+        <button type="button" id="save_changes" name="dddddd" onclick="update_ident()" class="btn btn-primary">Shrani</button>
+      </div>
+    </div>
+  </div>
+</div>
+<div class="row" style="width: 99%; margin-left: 0px;height: 30px; maring-top: 75px">
+<div id="select_div" style="position: fixed; background-color:white; width: 99%;z-index: 999; border-style: solid; border-top: thick black;border-left: thick black; border-right: thick black; margin-left: 6px;padding-top: 15px; padding-bottom: 10px; background-color: white;"
+	<div id="header">
+		<input type="image" src="http://10.0.9.105:3000/plus.png" style="height: 15xp; width: 15px; float:left; margin-right: 10px" onClick="toggleprojectEdit();">
+		<select id="ident" style="float: left; font-size: 0.8em">
+			<% i = 0 %>
+			<option value="">ČAKAJOČI IDENTI</option>
+			<% @idents_new.each do |x|%>
+				<option value="<%= x.id %>"><%= x.id.to_s + " " + x.ident_id + " " + x.name + " (" + x.production_line_text + ")" %></option>
+			<% end %>
+			<option value="">select somthin</option>
+		</select>
+		<div class="checkbox"style="float: left; font-size: 0.8em; margin-top: 0px">
+			<label style="margin-top: 2px; margin-right: 3px; margin-left: -2px;"><b>OPCIJE:</b></label>
+			<label><input type="checkbox" id="overtime"> Nadure</label>
+			<label><input type="checkbox" id="saturday"> Sobote</label>
+			<label><input type="checkbox" id="sunday"> Nedelje</label>
+			<label><input type="checkbox" id="holiday"> prazniki</label>
+		</div>
+		<div><label style="font-size: 0.8em;float: left; margin-left: 10px; margin-right: 3px; margin-top: 2px;">Min. datum začetka:</label><input id="datetimepicker2" type="text" name="datetimepicker" value="" style="float:left;font-size: 0.8em"></div>
+
+
+		<div id="confirm_buttons" style="float: left; font-size: 0.8em; margin-left: 10px">
+			<button type="submit" class="btn btn-xs" id="btn_check">Check</button>
+			<button type="submit" class="btn btn-xs" id="btn_dismiss">Dismiss</button>
+		</div>
+		<label style="font-size: 0.8em;float: left; margin-left: 10px">FILTER:</label>
+		<select id="filter_category" style="float: left; font-size: 0.8em; margin-left: 20px" onchange="filter_category()">
+			<option value ="all">all</option>
+			<option value ="Rezkanje">Rezkanje</option>
+			<option value ="Vrtanje">Vrtanje</option>
+			<option value ="Struženje">Struženje</option>
+			<option value ="Ročna dela">Ročna dela</option>
+			<option value ="Merilni protokol">Merilni protokol</option>
+		</select>
+
+	</div>
+</div>
+<div id="result_div" style="text-align: left; margin-top: 75px; margin-bottom: 10px"> </div>
+</div>
+
+
+<!--  -->
+<div id='calendar', style="width: 99%; margin-left: 6px"></div>
+<div class="row" style="width: 99%; margin-left: 6px">
+	<div id="project_header" style="background-color: black;color: white;margin-top: 30px;margin-bottom: 30px;font-size: 1.3em;">STRANKA: <b>AKRAPOVIČ   </b> PROJEKT: <b>Lorem ipsum dolor sit amet</b></div>
+	<div class='.col-xs-6 .col-md-4' style="display: inline-block; float:left">
+					<h4 style="text-align:left;color: red"><b>ZAMUDE</b></h4> 
+					<h5 ><b>AKR1: Material1 (+3 dni)</b></h5> 
+					<h5 ><b>Sava: Material292 (+2 dni)</b></h5> 
+					<h5 ><b>Test: Material299 (+6 dni)</b></h5> 
+					</br>
+					</br>
+					<h4 style="text-align:left;"><b>IZKORISTKI FEBRUAR</b></h4> 
+					<h5 style="color: orange;"><b>Rezkanje: 80%</b></h5> 
+					<h5 style="color: green;"><b>Vrtanje: 91%</b></h5> 
+					<h5 style="color: red;"><b>Struženje: 41%</b></h5> 
+					<h5 style="color: green;"><b>Vrtanje: 91%</b></h5> 
+					</br>
+					</br>
+					<h4 style="text-align:left;"><b>Nepotrjeni projekti</b></h4> 
+					<h5 ><b>AKR1: Material1</b></h5> 
+					<h5 ><b>Sava: Material292</b></h5> 
+					<h5 ><b>Test: Material299</b></h5> 
+	</div>
+	<div class='.col-xs-12 .col-md-8' style="width: 80%; float: right">
+
+	</div>
+</div>

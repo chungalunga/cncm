@@ -1,0 +1,38 @@
+<div class='container'>
+<div id='calendar'></div>
+</div>
+<%= link_to "New Product", new_ident_path, remote: true, class: "btn btn-primary" %>
+<%= link_to "New Product", new_ident_path, remote: true, class: "btn btn-secondary" %>
+<%= link_to "New Product", new_ident_path, remote: true, class: "btn btn-primary" %>
+<div id="product-modal" class="modal hide fade"></div>
+<% @idents.in_groups_of(3).each do |idents| %>
+  <% idents.select! {|x| !x.nil?} %>
+  <div class='row'>
+    <% idents.each do |ident| %>
+      <div class='col-md-4'>
+        <div class="thumbnail">
+            <div class="caption">
+              <span class="listing-title"><%= ident.ident_id %></span>
+              <span class="listing-desc"><%= ident.id %></span>
+			  <span class="listing-title">
+				  <% if ident.time_start < Time.now - (Time.now.wday) %>
+				  <%= (Time.now - (Time.now.wday)).midnight() %>
+				  <% else %>
+				  <%= ident.time_end %>
+				  <% end %>
+			  </span>
+              <span class="listing-desc">
+				  <% if ident.time_end > Time.now + (6 - (Time.now.wday)).days %>
+				  <%= Time.now.end_of_day() + (6 - (Time.now.wday)).days %>
+				  <% else %>
+				  <%= ident.time_end %>
+				  <% end %>
+			  </span>
+              <span><%= link_to "Edit", edit_ident_path(ident.id) %></span>
+              <span><%= link_to "Delete", idents_delete_path(:id => ident.id) %></span>
+            </div>
+          </div>
+      </div>
+    <% end %>
+  </div>
+<% end %>

@@ -1,0 +1,75 @@
+<div id="select_div">
+	<select name="production_line" id="production_line">
+		<option value="0">Line1</option>
+		<option value="1">Line2</option>
+	</select>
+</div>
+<% @working_hours %>
+
+  <% @biz_hours.each do |x|%>
+	<p>kkk <%= x %></p>
+  
+  <% end %>
+<div id="result_div">
+  <h4>Lisbon is selected</h4> 
+  <% @idents.each do |ident|%>
+  <p><% ident.finish_expected.strftime("%FT%R") %></p>
+  <% end %>
+</div>
+
+<div class='container'>
+<div class='calendar-container'>
+<div id='calendar'></div>
+<div style="width 400px;">
+<div style="text-align: left; float: left;">
+			<h4 style="text-align:left;color: red"><b>ZAMUDE</b></h4> 
+			<h5 ><b>AKR1: Material1 (+3 dni)</b></h5> 
+			<h5 ><b>Sava: Material292 (+2 dni)</b></h5> 
+			<h5 ><b>Test: Material299 (+6 dni)</b></h5> 
+			</br>
+			</br>
+			<h4 style="text-align:left;"><b>IZKORISTKI FEBRUAR</b></h4> 
+			<h5 style="color: orange;"><b>Rezkanje: 80%</b></h5> 
+			<h5 style="color: green;"><b>Vrtanje: 91%</b></h5> 
+			<h5 style="color: red;"><b>Struženje: 41%</b></h5> 
+			<h5 style="color: green;"><b>Vrtanje: 91%</b></h5> 
+			</br>
+			</br>
+			<h4 style="text-align:left;"><b>Nepotrjeni projekti</b></h4> 
+			<h5 ><b>AKR1: Material1</b></h5> 
+			<h5 ><b>Sava: Material292</b></h5> 
+			<h5 ><b>Test: Material299</b></h5> 
+</div>
+</div>
+<div class='content-container'>
+<h4 style="text-align:right;float:right;"><b><%= @projects.id %></b></h4> 
+<h4 style="text-align:right;float:right;">ID Projekta:</h4> 
+<h3 style="text-align:left;float:left;margin-top:0px;">Stranka:</h3> 
+<h2 style="margin-top:0px;"><b><%= @projects.customer %></b></h2> 
+<h3 style="text-align:left;float:left;margin-right: 20px;margin-top:0px;padding-top:0px;">Projekt:</h3> 
+<h2 style="padding-top:0px;margin-top:0px;"><b><%= @projects.description %></b></h2> 
+    <% @idents.each do |ident| %>
+	<div class='row'>
+      <div class='col-md-1'>
+        <div class="thumbnail">
+            <div class="caption">
+			<h4 style="text-align:right;float:right;"><b><%= ident.ident_id %></b></h4> 
+			<h4 style="text-align:right;float:right;">ID IDenta:</h4> 
+			<h4 style="text-align:left;float:left;margin-right: 20px;margin-top:0px;">Opis:</h4> 
+			<h4 style="margin-top:0px;"><b><%=ident.name %></b></h4> 
+			<h4 style="text-align:left;float:left;margin-right: 20px;margin-top:0px;padding-top:0px;">Projekt:</h4> 
+			<h4 style="padding-top:0px;margin-top:0px;"><b><%= ident.name %></b></h4> 
+			<h5 style="text-align:left;float:left;margin-right: 20px;margin-top:0px;padding-top:0px;">Interval:</h5> 
+			<h5 style="padding-top:0px;margin-top:0px;"><b><%= ident.start_expected.strftime("%FT%R") %></b> - <b><%= ident.finish_expected.strftime("%FT%R") %></b></h5> 
+			<h4 style="text-align:left;float:left;margin-right: 20px;margin-top:0px;padding-top:0px;">Status:</h4> 
+			<h4 style="padding-top:0px;margin-top:0px;color: green;"><b>On time</b></h4> 
+			<hr style="clear:both;"/>
+
+              <span><%= link_to "Edit", edit_ident_path(ident.id) %></span>
+            </div>
+          </div>
+      </div>
+	</div>
+    <% end %>
+</div>
+</div>

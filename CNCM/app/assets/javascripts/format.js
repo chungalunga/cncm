@@ -1,0 +1,1 @@
+$('#result_div').html("<h4>You have changed the city to: <%= @city_text %></h4>");
