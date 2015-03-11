@@ -11,27 +11,27 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150308135054) do
+ActiveRecord::Schema.define(version: 20150311182018) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "idents", force: :cascade do |t|
-    t.string   "ident_id",             limit: 255
-    t.integer  "part_of",              limit: 4
+    t.string   "ident_code",           limit: 255
     t.string   "name",                 limit: 255
-    t.string   "project_id",           limit: 255
-    t.integer  "production_line_id",   limit: 4
+    t.integer  "project_id"
+    t.integer  "production_line_id"
     t.string   "production_line_text", limit: 255
-    t.datetime "min_start_date"
     t.datetime "start_expected"
     t.datetime "finish_expected"
     t.datetime "start"
     t.datetime "finish"
-    t.string   "schedule_options",     limit: 255
-    t.float    "weight",               limit: 24
+    t.float    "weight"
     t.string   "status",               limit: 255
     t.string   "color",                limit: 255
-    t.float    "programiranje",        limit: 24
-    t.integer  "estimated_hours",      limit: 4
-    t.integer  "priority",             limit: 4
+    t.float    "programiranje"
+    t.integer  "estimated_hours"
+    t.integer  "priority"
   end
 
   create_table "production_positions", force: :cascade do |t|
